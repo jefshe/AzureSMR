@@ -23,4 +23,7 @@ before_install:
   - sudo apt-get install gcc-5 g++-5
   - sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc
   - sudo ln -s /usr/bin/g++-5 /usr/bin/g++
-  - sudo apt-get install -y libev-dev redis-tools redis-server libhiredis-dev libapparmor-dev apparmor-utils librsvg2-dev libprotobuf-dev libprotoc-dev subversion
+  - sudo apt-get install -y libev-dev redis-tools redis-server libapparmor-dev apparmor-utils librsvg2-dev libprotobuf-dev libprotoc-dev subversion
+  - git clone https://github.com/redis/hiredis
+  - make -C hiredis
+  - sudo make -C hiredis install

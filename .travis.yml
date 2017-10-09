@@ -29,4 +29,4 @@ before_install:
   - sudo ls -R /etc/apparmor.d
 script:
   - git clone "https://$GITHUB_PAT@github.com/Displayr/opencpu.git"
-  - cd opencpu && R -e 'devtools::test()'
+  - cd opencpu && git checkout matt && R -e 'devtools::test()'

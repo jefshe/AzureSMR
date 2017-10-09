@@ -20,11 +20,13 @@ r_github_packages:
 before_install:
   - sudo rm /etc/apt/sources.list.d/mongodb*.list*
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo echo "deb-src http://archive.ubuntu.com/ubuntu trusty main restricted universe multiverse" >> /etc/apt/sources.list
   - sudo apt-get update
   - sudo apt-get purge gcc
   - sudo apt-get install gcc-5 g++-5 && sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc && sudo ln -s /usr/bin/g++-5 /usr/bin/g++
-  - sudo apt-get install -y libev-dev redis-tools redis-server apparmor libapparmor-dev apparmor-utils librsvg2-dev libprotobuf-dev libprotoc-dev subversion
-  - sudo apt-get install apparmor-profiles
+  - sudo apt-get install -y libev-dev redis-tools redis-server librsvg2-dev libprotobuf-dev libprotoc-dev subversion
+  - sudo apt-get build-dep libapparmor-dev-2.10.95
+  - sudo apt-get -b source -t trusty libapparmor-dev-2.10.95
   - git clone https://github.com/redis/hiredis && make -C hiredis && sudo make -C hiredis install
   - sudo ldconfig
   - sudo ls -R /etc/apparmor.d

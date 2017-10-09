@@ -26,7 +26,7 @@ before_install:
   - sudo apt-get install apparmor-profiles
   - git clone https://github.com/redis/hiredis && make -C hiredis && sudo make -C hiredis install
   - sudo ldconfig
-  - tree /etc/apparmor.d
+  - sudo ls -R /etc/apparmor.d
 script:
   - git clone "https://$GITHUB_PAT@github.com/Displayr/opencpu.git"
   - cd opencpu && R -e 'devtools::test()'

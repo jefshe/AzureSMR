@@ -26,8 +26,8 @@ before_install:
   - sudo apt-get purge gcc
   - sudo apt-get install gcc-5 g++-5 && sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc && sudo ln -s /usr/bin/g++-5 /usr/bin/g++
   - sudo apt-get install -y libev-dev redis-tools redis-server librsvg2-dev libprotobuf-dev libprotoc-dev subversion
-  - sudo apt-get build-dep "libapparmor-dev-2.10.95-0ubuntu2.6~14.04.1"
-  - sudo apt-get -b source -t trusty "libapparmor-dev-2.10.95-0ubuntu2.6~14.04.1"
+  - sudo apt-get build-dep "libapparmor-dev-2.10.95"
+  - sudo apt-get -b source -t trusty "libapparmor-dev-2.10.95"
   - git clone https://github.com/redis/hiredis && make -C hiredis && sudo make -C hiredis install
   - sudo ldconfig
   - sudo ls -R /etc/apparmor.d

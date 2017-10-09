@@ -20,7 +20,7 @@ r_github_packages:
 before_install:
   - sudo rm /etc/apt/sources.list.d/mongodb*.list*
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo echo "deb-src http://archive.ubuntu.com/ubuntu trusty main restricted universe multiverse" >> /etc/apt/sources.list
+  - sudo sh -c 'echo "deb-src http://archive.ubuntu.com/ubuntu trusty main restricted universe multiverse" >> /etc/apt/sources.list'
   - sudo apt-get update
   - sudo apt-get purge gcc
   - sudo apt-get install gcc-5 g++-5 && sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc && sudo ln -s /usr/bin/g++-5 /usr/bin/g++

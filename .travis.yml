@@ -1,0 +1,24 @@
+language: r
+r:
+  - release
+dist: precise # apparmor is disabled in trusty
+sudo: required
+cache: false
+warnings_are_errors: false
+r_packages:
+  - roxygen2
+  - devtools
+  - testthat
+  - Rcpp
+  - covr
+  - RAppArmor
+r_github_packages:
+  - Displayr/redisMonitor
+
+before_install:
+  - sudo rm /etc/apt/sources.list.d/mongodb*.list*
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get update
+  - sudo apt-get purge gcc
+  - sudo apt-get install gcc-4.8
+  - sudo apt-get install -y libev-dev redis-tools redis-server libhiredis-dev libapparmor-dev apparmor-utils librsvg2-dev libprotobuf-dev libprotoc-dev subversion
